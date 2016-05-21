@@ -1,0 +1,3 @@
+---
+- include: playbooks/configure_system.yml
+#- include: playbooks/monitoring.yml 

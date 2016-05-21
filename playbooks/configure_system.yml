@@ -1,0 +1,6 @@
+---
+- name: Configure the system
+  hosts: all 
+  tags: configure_system 
+  roles: 
+  - roles/configure_system 

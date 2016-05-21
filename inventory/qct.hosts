@@ -1,0 +1,17 @@
+[all:vars]
+
+project=qct
+domain_name=qct.com
+
+[clients]
+client[1:12]
+
+[mons]
+ceph-mon1
+
+[osds]
+ceph-osd[1:6]
+
+[rgws]
+ceph-rgw[1:3]
+

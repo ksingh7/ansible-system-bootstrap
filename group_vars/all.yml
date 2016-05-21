@@ -1,0 +1,26 @@
+---
+nameserver: 8.8.8.8
+
+epel_package: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+timezone: Europe/Helsinki
+
+package_list:
+    - htop
+    - atop
+    - ntp
+    - tree
+    - perl
+    - wget
+    - tmux
+    - glances
+    - telnet
+    - vim
+    - dstat
+    - iperf
+    - fio
+    - nmap
+    - git
+    - iproute
+    - which
+    - python-pip
+
