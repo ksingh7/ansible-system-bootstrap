@@ -1,0 +1,19 @@
+---
+- name: Installing required package
+  package: name={{ item }} state=present
+  with_items:
+   - collectd
+   - sysstat
+
+- name: Adding collectd configruation file
+  template: src=collectd.conf.j2 dest=/etc/collectd.conf backup=yes
+
+- name: Downloading collectd iostat plugin
+  get_url: url=https://raw.githubusercontent.com/deniszh/collectd-iostat-python/master/collectd_iostat_python.py dest=/usr/lib64/collectd/collectd_iostat_python.py mode=0755
+
+- name: Downloading collectd iostat database file
+  get_url: url=https://raw.githubusercontent.com/deniszh/collectd-iostat-python/master/iostat_types.db dest=/usr/share/collectd/iostat_types.db
+
+- name: Starting collectd service
+  service: name=collectd state=restarted enabled=yes
+

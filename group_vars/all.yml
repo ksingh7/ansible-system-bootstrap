@@ -1,8 +1,9 @@
 ---
 nameserver: 8.8.8.8
-
 epel_package: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 timezone: Europe/Helsinki
+graphite_server_ip: 209.132.179.30
+graphite_server_port: 2003
 
 package_list:
     - htop
