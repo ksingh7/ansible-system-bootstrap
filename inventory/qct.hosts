@@ -3,14 +3,26 @@
 project=qct
 domain_name=qct.com
 
+[clients:vars]
+interface_name=ens20f0
+
 [clients]
-client[1:12]
+client[4:12]
+
+[mons:vars]
+interface_name=ens20f0
 
 [mons]
 ceph-mon1
 
+[osds:vars]
+interface_name=ens255
+
 [osds]
 ceph-osd[1:6]
+
+[rgws:vars]
+interface_name=ens20f0
 
 [rgws]
 ceph-rgw[1:3]
