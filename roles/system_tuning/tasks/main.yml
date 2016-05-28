@@ -1,6 +1,6 @@
 ---
 - name: Setting up MTU size 
-  lineinfile: dest=/etc/sysconfig/network-scripts/ifcfg-{{interface_name}} line="MTU=9000"
+  lineinfile: dest=/etc/sysconfig/network-scripts/ifcfg-{{interface_name}} line="MTU={{mtu_size}}"
   register: mtu_size
 
 - name: Starting network service

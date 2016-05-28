@@ -7,7 +7,7 @@ domain_name=qct.com
 interface_name=ens20f0
 
 [clients]
-client[4:12]
+client[1:12]
 
 [mons:vars]
 interface_name=ens20f0
@@ -27,3 +27,18 @@ interface_name=ens20f0
 [rgws]
 ceph-rgw[1:3]
 
+#[cosbench-controller:vars]
+#cosbench_controller=True
+
+[cosbench-controller]
+client1 cosbench_controller=True cosbench_driver=True
+
+#[cosbench-driver:vars]
+#cosbench_driver=True
+
+[cosbench-driver]
+client[2:12] cosbench_controller=False cosbench_driver=True
+
+[cosbench:children]
+cosbench-controller
+cosbench-driver

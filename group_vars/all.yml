@@ -4,6 +4,10 @@ epel_package: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch
 timezone: Europe/Helsinki
 graphite_server_ip: 209.132.179.30
 graphite_server_port: 2003
+mtu_size: 9000
+
+cosbench_version: 0.4.2.c3
+cosbench_url: "https://github.com/intel-cloud/cosbench/releases/download/v{{cosbench_version}}/{{cosbench_version}}.zip"
 
 package_list:
     - htop
@@ -24,4 +28,5 @@ package_list:
     - iproute
     - which
     - python-pip
+    - screen
 
