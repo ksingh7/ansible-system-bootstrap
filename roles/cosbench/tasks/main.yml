@@ -28,14 +28,9 @@
        regexp: 'TOOL_PARAMS='
        line: 'TOOL_PARAMS=""'
 
-- name: start cosbench controller
-  command: "sh start-controller.sh"
+- include: cosbench_controller.yml
   when: cosbench_controller
-  args:
-    chdir: "{{ansible_user_dir}}/cosbench/{{cosbench_version}}"
 
-- name: start cosbench driver
-  command: "sh start-driver.sh"
+- include: cosbench_driver.yml
   when: cosbench_driver
-  args:
-    chdir: "{{ansible_user_dir}}/cosbench/{{cosbench_version}}"
+
