@@ -2,5 +2,5 @@
 - name: Configuring cosbench
   hosts: cosbench 
   tags: cosbench 
-  roles: 
-  - roles/cosbench 
+  roles:
+  - { role: ksingh7.cosbench }
