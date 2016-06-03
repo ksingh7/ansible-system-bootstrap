@@ -1,0 +1,25 @@
+---
+- name: Make sure directory path is present
+  file: 
+   path: /etc/collectd/collectd-ceph 
+   state: directory 
+   mode: 0755
+
+- name: Git clone collectd-ceph repository
+  git: 
+   repo: https://github.com/ksingh7/ceph-collectd-plugin.git 
+   dest: /etc/collectd/collectd-ceph/plugins
+   force: yes
+
+- name: setting file permission
+  file:
+   path: /etc/collectd/collectd-ceph/plugins
+   recurse: yes
+   mode: 0755
+   state: directory
+
+- name: Add collectd configuration file
+  template: src=collectd.conf_with_ceph_plugin.j2 dest=/etc/collectd.conf backup=yes
+
+- name: Starting collectd service
+  service: name=collectd state=restarted enabled=yes

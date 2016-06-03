@@ -17,3 +17,5 @@
 - name: Starting collectd service
   service: name=collectd state=restarted enabled=yes
 
+- include: setup_ceph_dashboard.yml
+  when: '"ceph_dashboard" in group_names'

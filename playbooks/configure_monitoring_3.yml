@@ -1,7 +1,7 @@
 ---
 - name: Configure monitoring
-  hosts: all 
+  hosts: monitoring 
   tags: configure_monitoring 
   roles: 
-  - roles/configure_monitoring 
+  - ../roles/configure_monitoring 
 

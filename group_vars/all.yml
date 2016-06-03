@@ -4,7 +4,15 @@ epel_package: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch
 timezone: Europe/Helsinki
 graphite_server_ip: 209.132.179.30
 graphite_server_port: 2003
-mtu_size: 9000
+mtu_size: 9000 
+
+register_to_rhn: false
+subscription_manager_username: karasing@redhat.com
+subscription_manager_password: password
+subscription_manager_pool: "8a85f98144844aff014488d058bf15be"
+subscription_manager_repos:
+- rhel-7-server-rpms
+- rhel-7-server-extras-rpms
 
 package_list:
     - htop

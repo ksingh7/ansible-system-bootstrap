@@ -1,0 +1,20 @@
+---
+#- name: Register to RHN
+#  redhat_subscription:
+#    username: "{{ subscription_manager_username }}" 
+#    password: "{{ subscription_manager_password }}" 
+#    pool: "{{ subscription_manager_pool }}" 
+#    state: present
+- name: Register system to RHN
+  shell: "subscription-manager register --force --username={{ subscription_manager_username }} --password={{ subscription_manager_password }}"
+
+- name: Attaching pool
+  shell: "subscription-manager attach --pool={{ subscription_manager_pool }}"
+
+- name: Disabling all repositories
+  shell: "subscription-manager repos --disable='*'"
+
+- name: Enabling repositories
+  shell: "subscription-manager repos --enable={{item}}"
+  with_items: "{{ subscription_manager_repos }}"
+

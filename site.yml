@@ -1,4 +1,5 @@
 ---
-- include: playbooks/configure_system.yml
-- include: playbooks/configure_monitoring.yml 
-- include: playbooks/configure_cosbench.yml
+- include: playbooks/configure_system_1.yml
+- include: playbooks/system_tuning_2.yml
+- include: playbooks/configure_monitoring_3.yml
+- include: playbooks/configure_cosbench_4.yml

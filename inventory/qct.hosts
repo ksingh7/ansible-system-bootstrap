@@ -2,6 +2,9 @@
 
 project=qct
 domain_name=qct.com
+#subscription_manager_username=username
+#subscription_manager_password=pwd
+#subscription_manager_pool="Red Hat Enterprise Server"
 
 [clients:vars]
 interface_name=ens20f0
@@ -39,3 +42,17 @@ client3
 cosbench-controller
 cosbench-driver
 
+[system_dashboard]
+client1
+client2
+
+[ceph_dashboard]
+client1
+
+[monitoring:children]
+system_dashboard
+ceph_dashboard
+
+[monitoring:vars]
+graphite_server_ip=209.132.179.30
+graphite_server_port=2003

@@ -11,11 +11,15 @@
 - name: Updating Hosts file
   template: src={{project}}.hosts dest=/etc/hosts mode=0644  
 
-- name: Installing EPEL  Packages
+- include: rhn_register.yml
+  when: register_to_rhn
+  tags:
+   - register-system
+
+- name: Installing EPEL  Package
   package: name="{{epel_package}}" state=present
 
 - name: Installing Packages
   package: name="{{item}}" state=present
   with_items: 
   - "{{package_list}}"
-
