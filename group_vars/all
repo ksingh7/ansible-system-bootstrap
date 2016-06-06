@@ -34,3 +34,10 @@ package_list:
     - which
     - python-pip
     - screen
+
+cbt_package_list:
+    - python-lxml
+    - PyYAML
+
+cbt_user: cbt
+

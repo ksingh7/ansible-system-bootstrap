@@ -1,0 +1,52 @@
+---
+- name: Installing Dependencies
+  package: name="{{item}}" state=present
+  with_items: 
+  - "{{cbt_package_list}}"
+
+- name: Copying required packages
+  synchronize: 
+    src: files/
+    dest: /tmp
+
+- name: Installing required packages
+  yum: name="{{item}}" state=present
+  with_items:
+  - /tmp/pdsh-2.31-4.fc23.x86_64.rpm
+  - /tmp/pdsh-rcmd-rsh-2.31-4.fc23.x86_64.rpm
+  - /tmp/pdsh-rcmd-ssh-2.31-4.fc23.x86_64.rpm
+
+- name: Create user
+  user:
+    name: "{{cbt_user}}"
+    generate_ssh_key: yes
+    state: present
+    shell: /bin/bash
+    ssh_key_file: .ssh/id_rsa
+
+- name: Adding sudo rights for user
+  lineinfile: "dest=/etc/sudoers
+      insertafter=EOF
+      line='{{ cbt_user }} ALL=(ALL) NOPASSWD: ALL'
+      regexp='{{ cbt_user }} ALL=(ALL) NOPASSWD: ALL'
+      state=present"
+
+- name: Reading cbt user ssh keys
+  command: "cat /home/{{cbt_user}}/.ssh/id_rsa.pub"
+  register: cbt_key
+  delegate_to: "{{groups['configure_cbt'][0]}}" 
+
+- name: Adding SSH keys for cbt user
+  authorized_key: 
+    user: "{{cbt_user}}" 
+    key: "{{cbt_key.stdout}}"
+
+- name: Disabling requiretty
+  lineinfile: "dest=/etc/sudoers
+      regexp='Defaults    requiretty'
+      line='#Defaults    requiretty'
+      state=present"
+
+- name: Git clone CBT
+  get_url: url=https://github.com/ceph/cbt.git dest=/home/{{cbt_user}}
+  when: inventory_hostname in groups['cbt_head']
