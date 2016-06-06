@@ -3,5 +3,4 @@
   hosts: monitoring 
   tags: configure_monitoring 
   roles: 
-  - ../roles/configure_monitoring 
-
+  - configure_monitoring 

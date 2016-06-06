@@ -1,6 +1,0 @@
----
-- name: Configuring CBT 
-  hosts: configure_cbt 
-  tags: cbt 
-  roles:
-   - ../roles/ansible-role-cbt

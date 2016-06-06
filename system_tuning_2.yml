@@ -3,4 +3,4 @@
   hosts: all 
   tags: system_tuning 
   roles: 
-  - roles/system_tuning 
+  - system_tuning 

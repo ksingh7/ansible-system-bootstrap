@@ -3,4 +3,4 @@
   hosts: all 
   tags: configure_system 
   roles: 
-  - roles/configure_system 
+  - configure_system 
