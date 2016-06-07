@@ -1,18 +1,13 @@
 ---
-nameserver: 8.8.8.8
-epel_package: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-timezone: Europe/Helsinki
-graphite_server_ip: #IP
-graphite_server_port: #Port
-mtu_size: 9000 
+graphite_server_ip: 209.132.179.30
+graphite_server_port: 2003
 
-register_to_rhn: false
-subscription_manager_username: #ID
-subscription_manager_password: #PWD
-subscription_manager_pool: "8a85f98144844aff014488d058bf15be"
+#subscription_manager_pool: "8a85f98144844aff014488d058bf15be"
 subscription_manager_repos:
 - rhel-7-server-rpms
 - rhel-7-server-extras-rpms
+
+epel_package: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 package_list:
     - htop
@@ -34,10 +29,12 @@ package_list:
     - which
     - python-pip
     - screen
+    - python-lxml
+    - PyYAML
+    - libaio-devel
 
 cbt_package_list:
     - python-lxml
     - PyYAML
 
 cbt_user: cbt
-

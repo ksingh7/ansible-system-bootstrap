@@ -1,0 +1,24 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+10.5.5.19   client1
+10.5.5.20   client2
+10.5.5.21   client3
+10.5.5.22   client4
+10.5.5.23   client5
+10.5.5.24   client6
+10.5.5.25   client7
+10.5.5.29   client8
+10.5.5.27   client9
+10.5.5.28   client10
+
+10.5.5.10   osd1
+10.5.5.11   osd2
+10.5.5.12   osd3
+10.5.5.13   osd4
+10.5.5.14   osd5
+10.5.5.15   osd6
+
+10.5.5.16   mon1
+10.5.5.17   mon2
+10.5.5.18   mon3

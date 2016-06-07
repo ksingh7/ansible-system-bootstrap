@@ -9,7 +9,7 @@
   shell: "subscription-manager register --force --username={{ subscription_manager_username }} --password={{ subscription_manager_password }}"
 
 - name: Attaching pool
-  shell: "subscription-manager attach --pool={{ subscription_manager_pool }}"
+  shell: "subscription-manager attach --auto"
 
 - name: Disabling all repositories
   shell: "subscription-manager repos --disable='*'"
