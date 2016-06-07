@@ -38,3 +38,5 @@ cbt_package_list:
     - PyYAML
 
 cbt_user: cbt
+
+cbt_github_url: https://github.com/ceph/cbt.git

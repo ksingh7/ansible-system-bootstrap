@@ -26,3 +26,7 @@
   package: name="{{item}}" state=present
   with_items: 
   - "{{package_list}}"
+
+- name: Removing EPEL  Package
+  package: name="{{epel_package}}" state=absent
+

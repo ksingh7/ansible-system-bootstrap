@@ -48,5 +48,5 @@
       state=present"
 
 - name: Git clone CBT
-  get_url: url=https://github.com/ceph/cbt.git dest=/home/{{cbt_user}}
+  get_url: url={{cbt_github_url}}  dest=/home/{{cbt_user}}
   when: inventory_hostname in groups['cbt_head']
