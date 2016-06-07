@@ -32,10 +32,22 @@ package_list:
     - python-lxml
     - PyYAML
     - libaio-devel
+    - python-pip
+    - openssl-devel
+    - libffi-devel
+    - python-devel
+    - collectl
+    - blktrace
+    - perf
+    - valgrind
 
 cbt_package_list:
     - python-lxml
     - PyYAML
+    - collectl
+    - blktrace
+    - perf
+    - valgrind
 
 cbt_user: cbt
 
