@@ -87,7 +87,7 @@ LoadPlugin "logfile"
    Host "{{graphite_server_ip}}"
    Port "{{graphite_server_port}}"
    Protocol "tcp"
-   Prefix "collectd.qct."
+   Prefix "collectd.{{project}}."
    Protocol "tcp"
    LogSendErrors true
    EscapeCharacter "_"

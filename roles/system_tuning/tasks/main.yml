@@ -2,6 +2,7 @@
 - name: Setting up MTU size 
   lineinfile: dest=/etc/sysconfig/network-scripts/ifcfg-{{interface_name}} line="MTU={{mtu_size}}" regexp="^MTU="
   register: mtu_size
+  when: change_mtu
 
 - name: Starting network service
   service: name=network state=restarted enabled=yes

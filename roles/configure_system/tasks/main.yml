@@ -1,12 +1,15 @@
 ---
 - name: Setting up timezone
   command: timedatectl set-timezone {{timezone}}
+  when: setup_timezone
 
 - name: Setting up hostname
   hostname: name="{{inventory_hostname}}"
+  when: setup_hostname
 
 - name: Setting up resolv.conf
   template: src=resolv.conf.j2 dest=/etc/resolv.conf
+  when: setup_dns
 
 - name: Updating Hosts file
   template: src={{project}}.hosts dest=/etc/hosts mode=0644  
