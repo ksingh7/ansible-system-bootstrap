@@ -1,8 +1,6 @@
 ---
-- name: Installing Dependencies
-  package: name="{{item}}" state=present
-  with_items: 
-  - "{{cbt_package_list}}"
+- name: Installing EPEL  Package
+  package: name="{{epel_package}}" state=present
 
 - name: Copying required packages
   synchronize: 
@@ -15,6 +13,20 @@
   - /tmp/pdsh-2.31-4.fc23.x86_64.rpm
   - /tmp/pdsh-rcmd-rsh-2.31-4.fc23.x86_64.rpm
   - /tmp/pdsh-rcmd-ssh-2.31-4.fc23.x86_64.rpm
+  - "{{cbt_package_list}}"
+
+- name: Create user
+  user:
+    name: "{{cbt_user}}"
+    generate_ssh_key: yes
+    state: present
+    shell: /bin/bash
+    ssh_key_file: .ssh/id_rsa
+
+- name: Copying required packages
+  synchronize: 
+    src: files/
+    dest: /tmp
 
 - name: Create user
   user:
@@ -50,3 +62,7 @@
 - name: Git clone CBT
   get_url: url={{cbt_github_url}}  dest=/home/{{cbt_user}}
   when: inventory_hostname in groups['cbt_head']
+
+- name: Removing EPEL  Package
+  package: name=epel-release state=absent
+
