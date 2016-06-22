@@ -60,7 +60,7 @@
       state=present"
 
 - name: Git clone CBT
-  get_url: url={{cbt_github_url}}  dest=/home/{{cbt_user}}
+  git: repo={{cbt_github_url}}  dest=/home/{{cbt_user}}/cbt
   when: inventory_hostname in groups['cbt_head']
 
 - name: Removing EPEL  Package
