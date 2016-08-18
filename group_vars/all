@@ -1,5 +1,5 @@
 ---
-graphite_server_ip: 209.132.179.30
+graphite_server_ip: 54.167.16.203 
 graphite_server_port: 2003
 
 #subscription_manager_pool: "8a85f98144844aff014488d058bf15be"
