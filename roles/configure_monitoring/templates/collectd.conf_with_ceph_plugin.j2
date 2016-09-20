@@ -3,6 +3,7 @@ Interval 5
 
 TypesDB "/usr/share/collectd/iostat_types.db"
 TypesDB "/usr/share/collectd/types.db"
+TypesDB "/etc/collectd/collectd-ceph-slow-requests/slow-request_types.db"
 
 LoadPlugin "cpu"
 LoadPlugin "cpufreq"
@@ -179,3 +180,6 @@ LoadPlugin "logfile"
     </Module>
 </Plugin>
 
+<Plugin exec>
+	Exec collectd "/etc/collectd/collectd-ceph-slow-requests/slow-request.sh"
+</Plugin>
